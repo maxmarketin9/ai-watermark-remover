@@ -4,7 +4,7 @@ Static browser-based research app for controlled file transformation and AI-dete
 
 ## Supported
 - Images: Canvas resize/re-encode and controlled visual transforms
-- Audio: Web Audio decode, resample, filters, normalization, 16-bit WAV export
+- Audio: Web Audio decode, resample, filters, normalization, 16-bit WAV export (up to 10 minutes; browser memory permitting)
 - Text: Unicode normalization and selected invisible-character cleanup
 - Video: baseline copy in browser build for controlled comparison
 - Batch processing, SHA-256, JSON/CSV reports, ZIP export
