@@ -64,7 +64,7 @@ async function audioProcess(f,o){
  const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw Error('Web Audio unsupported');
  const ac=new AC();
  try{
-  const decoded=await ac.decodeAudioData(await f.arrayBuffer()); if(decoded.duration>180)throw Error('Audio > 3 min browser limit');
+  const decoded=await ac.decodeAudioData(await f.arrayBuffer()); if(decoded.duration>600)throw Error('Audio > 10 min browser limit');
   const channels=Math.min(2,decoded.numberOfChannels),frames=Math.ceil(decoded.duration*o.sr),oc=new OfflineAudioContext(channels,frames,o.sr);
   const src=oc.createBufferSource();src.buffer=decoded;let tail=src;
   const addFilter=(type,freq,gain=0)=>{const x=oc.createBiquadFilter();x.type=type;x.frequency.value=freq;x.gain.value=gain;tail.connect(x);tail=x};
