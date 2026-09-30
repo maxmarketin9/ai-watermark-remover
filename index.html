@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#08111f"/>
+<title>AI Watermark Lab</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand">◈ <span>AI WATERMARK</span><small>LAB v1.2</small></div>
+  <nav>
+    <button class="nav active" data-tab="workspace">Workspace</button>
+    <button class="nav" data-tab="report">Report</button>
+    <button class="nav" data-tab="about">About</button>
+  </nav>
+  <div class="safe">Local browser processing<br><small>No server upload</small></div>
+</aside>
+<main>
+<header><div><div class="eyebrow">MULTIMODAL FILE RESEARCH</div><h1>Inspect. Modify. <em>Compare.</em></h1><p>Controlled transformations for image, audio, video and text detector experiments.</p></div><span class="badge">NETLIFY READY</span></header>
+
+<section id="workspace" class="tab">
+<div class="stats"><div><b>4</b><span>Media types</span></div><div><b>20</b><span>Batch files</span></div><div><b>LOCAL</b><span>Processing</span></div><div><b>ZIP</b><span>Export</span></div></div>
+<div class="grid">
+  <div class="stack">
+    <section class="card">
+      <h2>01 · Upload samples</h2>
+      <div id="drop" class="drop" tabindex="0">⇧<h3>Drop files here or click to browse</h3><p>PNG JPG WebP · MP3 WAV OGG M4A FLAC · MP4 WebM · TXT MD CSV JSON</p><input id="picker" type="file" hidden multiple></div>
+      <div id="files"></div>
+      <div class="note">Original files are never overwritten. This tool does not prove human authorship and does not guarantee removal of invisible watermarks.</div>
+    </section>
+    <section class="card">
+      <h2>03 · Results</h2>
+      <div class="progress"><i id="bar"></i></div>
+      <div id="status">Select files and run an experiment.</div>
+      <div id="results"></div>
+      <div class="actions"><button id="zip" disabled>Download ZIP</button><button id="json" disabled>JSON</button><button id="csv" disabled>CSV</button></div>
+    </section>
+  </div>
+
+  <div class="stack">
+    <section class="card">
+      <h2>02 · Mutation settings</h2>
+      <label>Profile<select id="profile"><option value="baseline">Baseline</option><option value="creative">Creative edit simulation</option><option value="stress">Stress test</option></select></label>
+      <label>Image quality <span id="ql">85%</span><input id="quality" type="range" min="30" max="100" value="85"/></label>
+      <label>Scale<select id="scale"><option value="1">100%</option><option value=".75">75%</option><option value=".5">50%</option><option value="1.5">150%</option></select></label>
+      <label>Image output<select id="imgfmt"><option value="auto">Auto</option><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label>
+
+      <div class="sub">
+        <h3>♫ Suno Audio Lab</h3>
+        <label>Preset<select id="apreset"><option value="flat">Flat resample</option><option value="master">Mastering simulation</option><option value="lowpass">Low-pass stress</option><option value="highpass">High-pass stress</option></select></label>
+        <label>Sample rate<select id="sr"><option>44100</option><option>48000</option><option>22050</option></select></label>
+        <label>Peak <span id="pl">-1 dBFS</span><input id="peak" type="range" min="-12" max="0" value="-1"/></label>
+        <label class="check"><input id="norm" type="checkbox" checked/> Normalize</label>
+        <label class="check"><input id="fade" type="checkbox"/> Fade in/out</label>
+      </div>
+
+      <label>Unicode normalization<select id="unicode"><option>NFC</option><option>NFKC</option><option>NFD</option><option>NFKD</option></select></label>
+      <label class="check"><input id="invisible" type="checkbox" checked/> Remove selected invisible text characters</label>
+      <label class="check"><input id="originals" type="checkbox"/> Include originals in ZIP</label>
+      <button id="run" class="primary" disabled>Run experiment →</button>
+    </section>
+  </div>
+</div>
+</section>
+
+<section id="report" class="tab hidden">
+<section class="card"><h2>Experiment report</h2><pre id="reportText">No experiment yet.</pre></section>
+</section>
+
+<section id="about" class="tab hidden">
+<section class="card"><h2>Capabilities & limits</h2><p>Images are re-encoded using Canvas. Audio is decoded with Web Audio and exported as PCM WAV. Text can be Unicode-normalized and cleaned of selected invisible formatting characters. Video support depends on the browser and is currently inspected and copied as a research baseline rather than claiming watermark removal.</p><p>This application does not forge provenance, software signatures, or C2PA credentials. It cannot guarantee removal of SynthID or proprietary invisible watermarks.</p></section>
+</section>
+<footer>AI Watermark Lab · Research use · File transformation does not establish human authorship.</footer>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app.js"></script>
+</body></html>
